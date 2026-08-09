@@ -66,7 +66,7 @@
     <div class="hero-container">
       <!-- Headline & Copy -->
       <h1 class="headline fade-in delay-1"><span class="headline-blue">15-20 Qualified Bookings</span> <span class="headline-underline">Guaranteed</span><span class="headline-checkmark">✓</span></h1>
-      <p class="supporting-copy fade-in delay-2">Stop wasting ad spend on tire-kickers. Only see ready-to-book leads.</p>
+      <p class="supporting-copy fade-in delay-2">Stop wasting time on tire kickers. Only see ready to close bookings.</p>
 
       <!-- YouTube Embedded Video Player -->
       <div class="video-wrapper fade-in delay-3" id="vsl-video-wrapper">
@@ -83,7 +83,7 @@
 
       <!-- Main Call to Action -->
       <div class="cta-container fade-in delay-4">
-        <a href="https://calendly.com/visioncore-ai-inbox/30min" class="btn btn-large" id="main-cta">
+        <a href="https://calendly.com/visioncore-ai-inbox/30min" class="btn btn-large js-book-call" id="main-cta">
           Book Call
         </a>
       </div>
@@ -93,9 +93,70 @@
   <!-- Sticky Mobile-Only Bottom CTA -->
   <div id="mobile-sticky-cta" class="sticky-cta-bar">
     <div class="sticky-cta-content">
-      <a href="https://calendly.com/visioncore-ai-inbox/30min" class="btn btn-sticky">
+      <a href="https://calendly.com/visioncore-ai-inbox/30min" class="btn btn-sticky js-book-call">
         Book Call
       </a>
+    </div>
+  </div>
+
+  <!-- Lead Capture Modal -->
+  <div id="lead-modal-overlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-intro-heading">
+      <button type="button" class="modal-close" id="modal-close-btn" aria-label="Close application form">✕</button>
+
+      <div id="modal-form-view">
+        <p class="modal-intro" id="modal-intro-heading"><strong>Quick Application</strong> — Fill out in under a minute to see if you're a right fit.</p>
+
+        <form id="lead-form" action="https://formspree.io/f/maeweyrw" method="POST" novalidate>
+          <div class="form-group">
+            <label for="field-name">Name</label>
+            <input type="text" id="field-name" name="name" autocomplete="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="field-phone">Phone</label>
+            <input type="tel" id="field-phone" name="phone" autocomplete="tel" inputmode="numeric" placeholder="(555) 123-4567" maxlength="14" required>
+          </div>
+
+          <div class="form-group">
+            <label for="field-email">Email</label>
+            <input type="email" id="field-email" name="email" autocomplete="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="field-company">Company Name</label>
+            <input type="text" id="field-company" name="company" autocomplete="organization" required>
+          </div>
+
+          <div class="form-group">
+            <label for="field-revenue">Monthly Revenue</label>
+            <select id="field-revenue" name="monthly_revenue" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="Below $5k">Below $5k</option>
+              <option value="$5k-$10k">$5k - $10k</option>
+              <option value="$10k-$30k">$10k - $30k</option>
+              <option value="$30k-$50k">$30k - $50k</option>
+              <option value="$50k-$100k">$50k - $100k</option>
+              <option value="$100k+">$100k+</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="field-discovery">What would consistent, predictable lead flow mean for your business? <span class="label-optional">(optional)</span></label>
+            <textarea id="field-discovery" name="discovery_question" rows="3"></textarea>
+          </div>
+
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+
+          <button type="submit" class="btn btn-large modal-submit" id="modal-submit-btn">Submit Application</button>
+        </form>
+      </div>
+
+      <div id="modal-success-view" class="modal-success" hidden>
+        <div class="success-check">✓</div>
+        <p class="success-message">Thanks for filling this out.</p>
+        <a href="https://calendly.com/visioncore-ai-inbox/30min" class="btn btn-large" id="modal-next-btn">Next</a>
+      </div>
     </div>
   </div>
 
