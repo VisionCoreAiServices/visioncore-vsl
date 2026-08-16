@@ -1,0 +1,241 @@
+/* CSS Custom Properties / Design Tokens (matches main site) */
+:root {
+  --bg-color: #0F172A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #9CA3AF;
+  --accent-color: #3B82F6;
+  --accent-hover: #2563EB;
+  --border-color: rgba(255, 255, 255, 0.08);
+
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Global Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+}
+
+body {
+  background: radial-gradient(circle at 50% 0%, #1E293B 0%, #0F172A 70%);
+  background-attachment: fixed;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Header (matches main site) */
+.header {
+  width: 100%;
+  padding: 1.5rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  outline: none;
+  transition: opacity 0.2s ease;
+}
+
+.logo-link:hover {
+  opacity: 0.9;
+}
+
+.logo-img {
+  object-fit: contain;
+  display: block;
+}
+
+.logo-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.back-link {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--accent-color);
+}
+
+/* Policy Document Layout */
+.policy-main {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1.5rem 5rem 1.5rem;
+}
+
+.policy-doc {
+  width: 100%;
+  max-width: 720px;
+}
+
+.policy-doc h1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.last-updated {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.policy-doc section {
+  margin: 2rem 0;
+}
+
+.policy-doc h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.policy-doc h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin: 1.5rem 0 0.75rem 0;
+}
+
+.policy-doc p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.policy-doc p strong,
+.policy-doc li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.policy-doc ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.policy-doc li {
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  padding-left: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.policy-doc li::before {
+  content: '';
+  position: absolute;
+  left: 0.15rem;
+  top: 0.72rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+
+.policy-doc a {
+  color: var(--accent-color);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.35);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.policy-doc a:hover {
+  color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.policy-doc hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 2rem 0;
+}
+
+.contact-block {
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+
+.back-link-bottom {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 600px) {
+  .policy-main {
+    padding: 2rem 1.25rem 4rem 1.25rem;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+  }
+
+  .back-link {
+    font-size: 0.8rem;
+  }
+}
